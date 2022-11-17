@@ -9,7 +9,7 @@ box-sizing: border-box;
 
 html{
 --title-color:#fff;
---base-color:#333;
+--base-color:rgb(0, 0, 0);
 --base-color-secund:#00ff7f;
 
 }
@@ -52,14 +52,35 @@ font-size: 200%;
 }
 
 input{
-letter-spacing: 0.8px;
+letter-spacing: 2.8px;
     margin: 10px;
     padding: 10px;
-    border-radius: 5px;
-    border: 2px solid white;
+    border:none;
+    border-radius: 2px;
 background-color: transparent;
 font-weight: bold;
+height: 100px;
+width: 250px;
+text-align: center;
+
 }
+
+
+input::placeholder{
+color: black;
+transition: 1s;
+
+
+}
+
+input:hover{
+
+border:2px solid #fff;
+transition: 1s;
+color: black;
+background-color: #fff;
+}
+
 
 button{
     letter-spacing: 0.5px;
@@ -70,7 +91,57 @@ button{
 background-color: transparent;
 color: white;
 font-weight: bold;
+cursor: pointer;
+border: none;
 }
+
+button:before {
+    content: '';
+    background: linear-gradient(90deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 600%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+button:active {
+    color: #000;
+}
+
+button:active:after {
+    background: transparent;
+}
+
+button:hover:before {
+    opacity: 1;
+}
+
+button:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 190% 0; }
+    100% { background-position: 0 0; }
+}
+
 
 footer{
     font-size: large;
@@ -83,3 +154,9 @@ footer{
 
 }
 
+span {
+
+color: black;
+
+
+}
